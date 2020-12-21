@@ -1,0 +1,17 @@
+name: "Deployment"
+on: [push, workflow_dispatch]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Preview Branch
+        uses: sapiderman/branch-preview@feat/add_port
+        with:
+          dokku_key: ${{ secrets.DOKKU_KEY }}
+          host: ${{ secrets.HOST }}
+          domain: ${{ secrets.DOMAIN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_primary_branch: 'main'
