@@ -11,6 +11,7 @@ jobs:
         uses: sapiderman/branch-preview@feat/add_port
         with:
           dokku_key: ${{ secrets.DOKKU_KEY }}
+          port: 7822
           host: ${{ secrets.HOST }}
           domain: ${{ secrets.DOMAIN }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
